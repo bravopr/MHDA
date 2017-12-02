@@ -16,7 +16,11 @@ class SupplierDAO:
         result = []
         for row in cursor:
             result.append(row)
-        return result
+            # hardwired code
+            data = {"sid": 1, "sname": "Jonni", "scity": "Guaynabo", "sphone": "7875555555"}
+            # end of hardwired code
+        #return result
+        return data
 
     def getSupplierById(self, sid):
             cursor = self.conn.cursor()

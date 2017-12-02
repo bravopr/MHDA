@@ -3,6 +3,7 @@ from dao.supplier import SupplierDAO
 
 
 class SupplierHandler:
+
     def build_supplier_dict(self, row):
         result = {}
         result['sid'] = row[0]
@@ -23,13 +24,19 @@ class SupplierHandler:
 
     def getAllSuppliers(self):
 
-        dao = SupplierDAO()
+        '''dao = SupplierDAO()
         suppliers_list = dao.getAllSuppliers()
         result_list = []
         for row in suppliers_list:
             result = self.build_supplier_dict(row)
             result_list.append(result)
-        return jsonify(Suppliers=result_list)
+        '''
+        #hardwired code
+        data = {"sid": 1, "sname": "Osmi", "scity": "Guaynabo", "sphone": "7875555555"}
+        #end of hardwired code
+
+        #return jsonify(Suppliers=result_list)
+        return jsonify(data)
 
     def getSupplierById(self, sid):
 
