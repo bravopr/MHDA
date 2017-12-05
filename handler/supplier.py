@@ -22,9 +22,21 @@ class SupplierHandler:
         result['quantity'] = row[5]
         return result
 
-    def getAllSuppliers(self):
+    def getDummyData(self):
 
-        '''dao = SupplierDAO()
+        data = {"sid": 1, "sname": "Osmi", "scity": "Guaynabo", "sphone": "7875555555"}
+        return jsonify(data)
+
+    def getDummyData2(self, rid):
+
+        data = {"sid": 1, "sname": "Osmi", "scity": "Guaynabo", "sphone": "7875555555"}
+        return jsonify(data)
+
+
+
+    def getAllSuppliers(self):
+        '''
+        dao = SupplierDAO()
         suppliers_list = dao.getAllSuppliers()
         result_list = []
         for row in suppliers_list:
