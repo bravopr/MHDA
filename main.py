@@ -12,7 +12,7 @@ app = Flask(__name__)
 def greeting():
     return 'Hello, this is the Maria Hurracane Disaster App (MHDA)!'
 
-###############Suppliers
+################Suppliers
 @app.route('/MHDA/suppliers/')
 def getAllSuppliers():
         return SupplierHandler ().getDummyData ()
