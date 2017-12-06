@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e462bdfc-50fa-457f-b962-3457d2c88b1c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MHDA/ProjectsDocs/README.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../MHDA/ProjectsDocs/README.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MHDA/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MHDA/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MHDA/handler/CustomerHandler.py" afterPath="$PROJECT_DIR$/../MHDA/handler/CustomerHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MHDA/handler/ProductHandler.py" afterPath="$PROJECT_DIR$/../MHDA/handler/ProductHandler.py" />
@@ -18,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../MHDA/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
@@ -26,16 +26,6 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../MHDA/ProjectsDocs/README.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -97,6 +87,11 @@
             <path>
               <item name="MHDA" type="b2602c69:ProjectViewProjectNode" />
               <item name="MHDA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MHDA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MHDA" type="462c0819:PsiDirectoryNode" />
+              <item name="ProjectsDocs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -341,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512524119995</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Project Docs file">
+      <created>1512524174616</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1512524174616</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -464,6 +466,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../MHDA/ProjectsDocs/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../MHDA/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -471,14 +481,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../MHDA/ProjectsDocs/README.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
