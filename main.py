@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, request
-from handler.parts import PartHandler
+#from handler.parts import PartHandler
 from handler.supplier import SupplierHandler
-
+from handler.ProductHandler import ProductHandler
+from handler.CustomerHandler import CustomerHandler
+from handler.RequestHandler import RequestHandler
+from handler.PurchaseHandler import PurchaseHandler
 
 app = Flask(__name__)
 
@@ -9,7 +12,7 @@ app = Flask(__name__)
 def greeting():
     return 'Hello, this is the Maria Hurracane Disaster App (MHDA)!'
 
-################Suppliers
+###############Suppliers
 @app.route('/MHDA/suppliers/')
 def getAllSuppliers():
         return SupplierHandler ().getDummyData ()
@@ -28,61 +31,61 @@ def getPartsBySuplierId(sid):
 ################Products
 @app.route('/MHDA/products/')
 def getAllProducts():
-        return SupplierHandler ().getDummyData ()
+        return ProductHandler ().getDummyData ()
 
 @app.route('/MHDA/products/<int:pid>')
 def getProductsById(pid):
     #return PartHandler().getPartById(pid)
-    return SupplierHandler ().getDummyData2 (pid)
+    return ProductHandler ().getDummyData2 (pid)
 
 @app.route('/MHDA/products/<int:pid>/suppliers/')
 def getProductsByPartId(pid):
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData2 (pid)
+    return ProductHandler ().getDummyData2 (pid)
 
 @app.route('/MHDA/products/<int:pid>/category')
 def getProductByPartIdCategory(pid):
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData2 (pid)
+    return ProductHandler ().getDummyData2 (pid)
 ################
 
 ################Customers
 @app.route('/MHDA/customer/')
 def getAllCustomer():
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData ()
+    return CustomerHandler ().getDummyData ()
 
 @app.route('/MHDA/customer/<int:cid>/')
 def getCustomerByPartId(cid):
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData2 (cid)
+    return CustomerHandler ().getDummyData2 (cid)
 
 @app.route('/MHDA/customer/<int:pid>/request')
 def getcustomerByPartIdAndRequest(pid):
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData2 (pid)
+    return CustomerHandler ().getDummyData2 (pid)
 
 @app.route('/MHDA/customer/<int:pid>/purchase')
 def getcustomerByPartIdAndPurchase(pid):
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData2 (pid)
+    return CustomerHandler ().getDummyData2 (pid)
 ##################
 
 ###############Purchase
 @app.route('/MHDA/purchase/')
 def getPurchaseByPartId():
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData ()
+    return PurchaseHandler ().getDummyData ()
 
 @app.route('/MHDA/purchase/<int:puid>')
 def getPurchaseById(puid):
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler ().getDummyData2 (puid)
+    return PurchaseHandler ().getDummyData2 (puid)
 
 @app.route('/MHDA/purchase/<int:pid>/customer/<int:cid>')
 def getPurchaseByProductIdAndCustomerID(pid,cid):
     pid=cid
-    return SupplierHandler ().getDummyData2 (pid)
+    return PurchaseHandler ().getDummyData2 (pid)
 ################
 
 ############ Request
@@ -90,11 +93,11 @@ def getPurchaseByProductIdAndCustomerID(pid,cid):
 @app.route('/MHDA/request/')
 def getAllRequest():
     #return PartHandler().getSuppliersByPartId(pid)
-    return SupplierHandler().getDummyData()
+    return RequestHandler().getDummyData()
 
 @app.route('/MHDA/request/<int:rid>/')
 def getRequestByrId(rid):
-    return SupplierHandler().getDummyData2(rid)
+    return RequestHandler().getDummyData2(rid)
 
 if __name__ == '__main__':
     app.run()
