@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def greeting():
-    return 'Hello, this is the Maria Hurracane Disaster App (MHDA)!'
+    return 'Hello, this is the Maria Hurricane Disaster App (MHDA)!'
 
 ################Suppliers
 @app.route('/MHDA/suppliers/')
