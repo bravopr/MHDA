@@ -24,3 +24,12 @@ class ResourcesHandler:
             result = self.build_allresourcesinfo_dict(row)
             result_list.append(result)
         return jsonify(result_list)
+
+    def getResourceById(self, rid):
+        dao = ResourcesDAO()
+        row = dao.getResourceById(rid)
+        if not row:
+            return jsonify(Error="Resource Not Found"), 404
+        else:
+            result = self.build_allresourcesinfo_dict(row)
+        return jsonify(result)

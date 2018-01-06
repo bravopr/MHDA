@@ -43,27 +43,26 @@ def getAllSuppliers():
 def getSupplierById(uid):
     return UserHandler ().getSupplierById (uid)
 
-
+'''
 @app.route ('/MHDA/suppliers/<int:sid>/products/')
 def getPartsBySuplierId(sid):
     # return SupplierHandler().getPartsBySupplierId(sid)
     return UserHandler ().getDummyData2 (sid)
-
+'''
 
 ################
 
 ################ Resources
 @app.route ('/MHDA/resources/')
-def getAllProducts():
+def getAllResources():
     return ResourcesHandler ().getAllResources()
 
+
+@app.route ('/MHDA/resources/<int:rid>')
+def getResourceById(rid):
+    return ResourcesHandler ().getResourceById(rid)
+
 '''
-@app.route ('/MHDA/products/<int:pid>')
-def getProductsById(pid):
-    # return PartHandler().getPartById(pid)
-    return ProductHandler ().getDummyData2 (pid)
-
-
 @app.route ('/MHDA/products/<int:pid>/suppliers/')
 def getProductsByPartId(pid):
     # return PartHandler().getSuppliersByPartId(pid)

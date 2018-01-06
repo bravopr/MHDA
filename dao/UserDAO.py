@@ -11,7 +11,7 @@ class UserDAO:
 
     def getAllUsers(self):
         cursor = self.conn.cursor()
-        query = "select uid,uname,ulast,utype,uaddress,ucity,uregion,uzip,ustate,loclat,loclon from users natural inner join useraddress;"
+        query = "select * from users natural inner join useraddress;"
         cursor.execute(query)
         result = []
         for row in cursor:
@@ -57,6 +57,7 @@ class UserDAO:
             result = cursor.fetchone()
             return result
 
+    '''
     def getPartsBySupplierId(self, sid):
         cursor = self.conn.cursor()
         query = "select pid, pname, pmaterial, pcolor, pprice, qty from parts natural inner join supplier natural inner join supplies where sid = %s;"
@@ -66,7 +67,7 @@ class UserDAO:
             result.append(row)
         return result
 
-    '''
+    
     def getSuppliersByCity(self, city):
         cursor = self.conn.cursor()
         query = "select * from supplier where scity = %s;"
