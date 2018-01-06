@@ -1,5 +1,5 @@
 # Maria Hurricane Disaster App
-Parts Demo App for Database access.
+Backened System for Disaster Site Resources Locator
 
 This simple app shows how to build a REST API for the backend of a database application using Flask. The Database engine is PostgreSQL. the application manages data from three tables:
 
