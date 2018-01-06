@@ -1,5 +1,5 @@
 from flask import jsonify
-from dao.supplier import SupplierDAO
+from dao.UserDAO import UserDAO
 
 
 class PurchaseHandler:
