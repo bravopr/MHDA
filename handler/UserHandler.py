@@ -37,6 +37,17 @@ class UserHandler:
         result['quantity'] = row[5]
         return result
 
+    def getResourceBySupllierIDdic(self,row):
+        result={}
+        result['uid'] = row[0]
+        result['rid'] = row[1]
+        result['rname'] = row[2]
+        result['rprice'] = row[3]
+        result['descpercent'] = row[4]
+        result['rcategory'] = row[5]
+        result['rqty'] = row[6]
+        result['rregion'] = row[7]
+        return result
 
     def getAllUsers(self):
         dao = UserDAO()
@@ -92,18 +103,18 @@ class UserHandler:
             result = self.build_alluserinfo_dict(row)
         return jsonify(result)
 
-    '''
-    def getPartsBySupplierId(self, sid):
-        dao = UserDAO()
-        if not dao.getSupplierById(sid):
-            return jsonify(Error="Supplier Not Found"), 404
-        parts_list = dao.getPartsBySupplierId(sid)
-        result_list = []
-        for row in parts_list:
-            result = self.build_part_dict(row)
-            result_list.append(result)
-        return jsonify(PartsSupply=result_list)
 
+    def getResourcesBySupplierId(self, uid):
+        dao = UserDAO()
+        if not dao.getResourcesBySupplierId(uid):
+            return jsonify(Error="Supplier Not Found"), 404
+        resources_list = dao.getResourcesBySupplierId(uid)
+        result_list = []
+        for row in resources_list:
+            result = self.getResourceBySupllierIDdic(row)
+            result_list.append(result)
+        return jsonify(ResourcesSupply=result_list)
+    '''
     def searchSuppliers(self, args):
         if len(args) > 1:
             return jsonify(Error = "Malformed search string."), 400

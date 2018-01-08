@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e462bdfc-50fa-457f-b962-3457d2c88b1c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dao/RequestDAO.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/ResourcesDAO.py" afterPath="$PROJECT_DIR$/dao/ResourcesDAO.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/UserDAO.py" afterPath="$PROJECT_DIR$/dao/UserDAO.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/CustomerHandler.py" afterPath="$PROJECT_DIR$/handler/CustomerHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/PurchaseHandler.py" afterPath="$PROJECT_DIR$/handler/PurchaseHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/RequestHandler.py" afterPath="$PROJECT_DIR$/handler/RequestHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/ResourcesHandler.py" afterPath="$PROJECT_DIR$/handler/ResourcesHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/UserHandler.py" afterPath="$PROJECT_DIR$/handler/UserHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +23,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+            <state relative-caret-position="229">
+              <caret line="122" column="26" lean-forward="false" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="26" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourcesHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/handler/ResourcesHandler.py">
+      <file leaf-file-name="RequestHandler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/handler/RequestHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+            <state relative-caret-position="170">
+              <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="22" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourcesDAO.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dao/ResourcesDAO.py">
+      <file leaf-file-name="RequestDAO.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/RequestDAO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            <state relative-caret-position="260">
+              <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -59,8 +59,8 @@
       <file leaf-file-name="UserHandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/UserHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="74" selection-end-column="30" />
+            <state relative-caret-position="253">
+              <caret line="85" column="30" lean-forward="true" selection-start-line="78" selection-start-column="4" selection-end-line="85" selection-end-column="30" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -71,8 +71,8 @@
       <file leaf-file-name="UserDAO.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dao/UserDAO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="50" column="25" lean-forward="true" selection-start-line="48" selection-start-column="12" selection-end-line="50" selection-end-column="25" />
+            <state relative-caret-position="111">
+              <caret line="38" column="3" lean-forward="false" selection-start-line="38" selection-start-column="3" selection-end-line="43" selection-end-column="25" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -104,19 +104,21 @@
         <option value="$PROJECT_DIR$/config/dbconfig.py" />
         <option value="$PROJECT_DIR$/dao/supplier.py" />
         <option value="$PROJECT_DIR$/handler/supplier.py" />
-        <option value="$PROJECT_DIR$/handler/UserHandler.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dao/ResourcesDAO.py" />
         <option value="$PROJECT_DIR$/handler/ResourcesHandler.py" />
         <option value="$PROJECT_DIR$/dao/UserDAO.py" />
-        <option value="$PROJECT_DIR$/dao/ResourcesDAO.py" />
+        <option value="$PROJECT_DIR$/handler/UserHandler.py" />
+        <option value="$PROJECT_DIR$/dao/RequestDAO.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/handler/RequestHandler.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="82" />
-    <option name="y" value="56" />
+    <option name="x" value="65" />
+    <option name="y" value="32" />
     <option name="width" value="1132" />
     <option name="height" value="781" />
   </component>
@@ -159,6 +161,11 @@
               <item name="MHDA" type="b2602c69:ProjectViewProjectNode" />
               <item name="MHDA" type="462c0819:PsiDirectoryNode" />
               <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MHDA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MHDA" type="462c0819:PsiDirectoryNode" />
+              <item name="ProjectDocs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -429,11 +436,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515262810048</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fixed getResourcesById method">
+      <created>1515265115425</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1515265115425</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="82" y="56" width="1132" height="781" extended-state="0" />
+    <frame x="65" y="32" width="1132" height="781" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19257951" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -469,7 +483,8 @@
     <MESSAGE value="Added Project Docs files" />
     <MESSAGE value="Overhaul started, api connected to db, some routes now show real db data." />
     <MESSAGE value="Changes on readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes on readme" />
+    <MESSAGE value="Fixed getResourcesById method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed getResourcesById method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -694,27 +709,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjectsDocs/README2.txt" />
     <entry file="file://$PROJECT_DIR$/ProjectsDocs/README.txt" />
-    <entry file="file://$PROJECT_DIR$/handler/PurchaseHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/dbconfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/parts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#25#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,30 +732,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/handler/parts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/PurchaseHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/handler/ResourcesHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        <state relative-caret-position="137">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/dao/ResourcesDAO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        <state relative-caret-position="345">
+          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/handler/UserHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="74" selection-end-column="30" />
+        <state relative-caret-position="253">
+          <caret line="85" column="30" lean-forward="true" selection-start-line="78" selection-start-column="4" selection-end-line="85" selection-end-column="30" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -766,20 +780,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dao/UserDAO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="50" column="25" lean-forward="true" selection-start-line="48" selection-start-column="12" selection-end-line="50" selection-end-column="25" />
+        <state relative-caret-position="111">
+          <caret line="38" column="3" lean-forward="false" selection-start-line="38" selection-start-column="3" selection-end-line="43" selection-end-column="25" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dao/ResourcesDAO.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        <state relative-caret-position="229">
+          <caret line="122" column="26" lean-forward="false" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/RequestDAO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/RequestHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -62,6 +62,10 @@ def getAllResources():
 def getResourceById(rid):
     return ResourcesHandler ().getResourceById(rid)
 
+@app.route ('/MHDA/resources/supplier/<int:uid>')
+def getResourcesBySupplierId(uid):
+    return UserHandler ().getResourcesBySupplierId(uid)
+
 '''
 @app.route ('/MHDA/products/<int:pid>/suppliers/')
 def getProductsByPartId(pid):
@@ -78,17 +82,6 @@ def getProductByPartIdCategory(pid):
 ################
 
 ################Customers
-@app.route ('/MHDA/customer/')
-def getAllCustomer():
-    # return PartHandler().getSuppliersByPartId(pid)
-    return CustomerHandler ().getDummyData ()
-
-
-@app.route ('/MHDA/customer/<int:cid>/')
-def getCustomerByPartId(cid):
-    # return PartHandler().getSuppliersByPartId(pid)
-    return CustomerHandler ().getDummyData2 (cid)
-
 
 @app.route ('/MHDA/customer/<int:pid>/request')
 def getcustomerByPartIdAndRequest(pid):
@@ -129,13 +122,12 @@ def getPurchaseByProductIdAndCustomerID(pid, cid):
 
 @app.route ('/MHDA/request/')
 def getAllRequest():
-    # return PartHandler().getSuppliersByPartId(pid)
-    return RequestHandler ().getDummyData ()
+    return RequestHandler ().getAllRequest ()
 
 
-@app.route ('/MHDA/request/<int:rid>/')
-def getRequestByrId(rid):
-    return RequestHandler ().getDummyData2 (rid)
+@app.route ('/MHDA/request/<int:reqid>/')
+def getRequestByrId(reqid):
+    return RequestHandler ().getRequestById (reqid)
 
 
 if __name__ == '__main__':

@@ -57,23 +57,22 @@ class UserDAO:
             result = cursor.fetchone()
             return result
 
-    '''
-    def getPartsBySupplierId(self, sid):
-        cursor = self.conn.cursor()
-        query = "select pid, pname, pmaterial, pcolor, pprice, qty from parts natural inner join supplier natural inner join supplies where sid = %s;"
-        cursor.execute(query, (sid,))
-        result = []
-        for row in cursor:
-            result.append(row)
-        return result
+    #hay q implementar
+    def getResourcesBySupplierId(self, uid):
+            cursor = self.conn.cursor()
+            query = "select uid, rid, rname, rprice, descpercent, rcategory,rqty, rregion from resources natural inner join users where uid = %s"
+            cursor.execute (query, (uid,))
+            result = []
+            for row in cursor:
+                result.append (row)
+            return result
 
-    
+    # hay q implementar
     def getSuppliersByCity(self, city):
         cursor = self.conn.cursor()
-        query = "select * from supplier where scity = %s;"
+        query = "select * from users natural inner join useraddress where utype = 'supplier' AND ucity = %s;"
         cursor.execute(query, (city,))
         result = []
         for row in cursor:
             result.append(row)
         return result
-    '''
