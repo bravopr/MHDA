@@ -3,6 +3,7 @@ from handler.UserHandler import UserHandler
 from handler.ResourcesHandler import ResourcesHandler
 from handler.RequestHandler import RequestHandler
 from handler.PurchaseHandler import PurchaseHandler
+from handler.PaymentInfoHandler import PaymentInfoHandler
 
 app = Flask (__name__)
 
@@ -107,8 +108,19 @@ def getPurchaseByProductIdAndCustomerID(pid, cid):
 
 ################
 
-############ Request
+############ PaymentInfo
 
+@app.route ('/MHDA/paymentinfo/')
+def getPaymentInfo():
+    if request.method == 'POST':
+        return PaymentInfoHandler().insertPayment(request.form)
+    else:
+        if not request.args:
+            return PaymentInfoHandler().getAllPayment()
+        else:
+            return PaymentInfoHandler().searchPayment(request.args)
+
+############ Request
 
 @app.route ('/MHDA/request/')
 def getRequest():
