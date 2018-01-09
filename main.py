@@ -1,8 +1,6 @@
 from flask import Flask, jsonify, request
-# from handler.parts import PartHandler
 from handler.UserHandler import UserHandler
 from handler.ResourcesHandler import ResourcesHandler
-from handler.CustomerHandler import CustomerHandler
 from handler.RequestHandler import RequestHandler
 from handler.PurchaseHandler import PurchaseHandler
 
@@ -53,10 +51,22 @@ def getPartsBySuplierId(sid):
 ################
 
 ################ Resources
+
+@app.route('/MHDA/resources/', methods=['GET', 'POST'])
+def getAllResources():
+
+    if request.method == 'POST':
+        return ResourcesHandler().insertResource(request.form)
+    else:
+        if not request.args:
+            return ResourcesHandler().getAllResources()
+        else:
+            return ResourcesHandler().searchResources(request.args)
+'''       
 @app.route ('/MHDA/resources/')
 def getAllResources():
     return ResourcesHandler ().getAllResources()
-
+'''
 
 @app.route ('/MHDA/resources/<int:rid>')
 def getResourceById(rid):
@@ -65,6 +75,10 @@ def getResourceById(rid):
 @app.route ('/MHDA/resources/supplier/<int:uid>')
 def getResourcesBySupplierId(uid):
     return UserHandler ().getResourcesBySupplierId(uid)
+
+@app.route ('/MHDA/resources/<int:rid>/supplier')
+def getSupplierByResourcesId(rid):
+    return ResourcesHandler ().getSupplierByResourcesId(rid)
 
 '''
 @app.route ('/MHDA/products/<int:pid>/suppliers/')
@@ -80,22 +94,6 @@ def getProductByPartIdCategory(pid):
 
 '''
 ################
-
-################Customers
-
-@app.route ('/MHDA/customer/<int:pid>/request')
-def getcustomerByPartIdAndRequest(pid):
-    # return PartHandler().getSuppliersByPartId(pid)
-    return CustomerHandler ().getDummyData2 (pid)
-
-
-@app.route ('/MHDA/customer/<int:pid>/purchase')
-def getcustomerByPartIdAndPurchase(pid):
-    # return PartHandler().getSuppliersByPartId(pid)
-    return CustomerHandler ().getDummyData2 (pid)
-
-
-##################
 
 ###############Purchase
 @app.route ('/MHDA/purchase/')
