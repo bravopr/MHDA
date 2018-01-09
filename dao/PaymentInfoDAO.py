@@ -24,3 +24,10 @@ class PaymentInfoDAO:
         cursor.execute (query, (uid,))
         result = cursor.fetchone ()
         return result
+
+    def getPaymentInfoByCCNumber(self, ccnumber):
+        cursor = self.conn.cursor ()
+        query = "select * from paymentinfo where ccnumber = %s;"
+        cursor.execute (query, (ccnumber,))
+        result = cursor.fetchone ()
+        return result

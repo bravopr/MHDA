@@ -116,7 +116,7 @@ def getPaymentInfo():
         return PaymentInfoHandler().insertPayment(request.form)
     else:
         if not request.args:
-            return PaymentInfoHandler().getAllPayment()
+            return PaymentInfoHandler().getAllPaymentInfo()
         else:
             return PaymentInfoHandler().searchPayment(request.args)
 
