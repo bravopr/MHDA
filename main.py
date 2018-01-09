@@ -62,6 +62,11 @@ def getResources():
             return ResourcesHandler().getAllResources()
         else:
             return ResourcesHandler().searchResources(request.args)
+
+@app.route ('/MHDA/resources/available/')
+def getAllResources():
+        return ResourcesHandler ().getAllResourcesAvailable ()
+
 '''       
 @app.route ('/MHDA/resources/')
 def getAllResources():
@@ -128,7 +133,7 @@ def getRequest():
         return RequestHandler().insertRequest(request.form)
     else:
         if not request.args:
-            return RequestHandler().getAllRequest()
+            return RequestHandler().getAllRequestSortingByName()
         else:
             return RequestHandler().searchRequest(request.args)
 

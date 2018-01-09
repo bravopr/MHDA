@@ -123,6 +123,15 @@ class ResourcesHandler:
             result_list.append (result)
         return jsonify (result_list)
 
+    def getAllResourcesAvailable(self):
+        dao = ResourcesDAO ()
+        resources_list = dao.getAllResourcesAvailable ()
+        result_list = []
+        for row in resources_list:
+            result = self.build_allresourcesinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
     def searchResources(self, args):
         rid_filter = args.get("rid")
         uid_filter = args.get("uid")
@@ -156,6 +165,8 @@ class ResourcesHandler:
 
     def insertResource(self, form):
         pass
+
+
 
 
 

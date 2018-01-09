@@ -18,6 +18,15 @@ class ResourcesDAO:
             result.append(row)
         return result
 
+    def getAllResourcesAvailable(self):
+        cursor = self.conn.cursor()
+        query = "select * from resources WHERE rqty > 0 order by rname;"
+        cursor.execute(query)
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
     def getResourceById(self,rid):
         cursor = self.conn.cursor()
         query = "select * from resources where rid = %s;"

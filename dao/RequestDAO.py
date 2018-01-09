@@ -9,9 +9,9 @@ class RequestDAO:
                                                             pg_config['passwd'])
         self.conn = psycopg2._connect(connection_url)
 
-    def getAllRequest(self):
+    def getAllRequestSortingByName(self):
         cursor = self.conn.cursor ()
-        query = "select * from request;"
+        query = "select req.reqid ,req.rid ,r.rname,req.uid,req.reqtype,req.reqdate,req.expdeliverydate,req.carrier,req.reqstatus,req.rqty from resources r, request as req WHERE r.rid=req.rid order by rname;"
         cursor.execute (query)
         result = []
         for row in cursor:
@@ -65,6 +65,15 @@ class RequestDAO:
         cursor = self.conn.cursor ()
         query = "select * from request where reqstatus = %s;"
         cursor.execute (query, (reqstatus,))
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result
+
+    def getAllRequestSortingByResourceName(self):
+        cursor = self.conn.cursor ()
+        query = "select * from request order by rid;"
+        cursor.execute (query)
         result = []
         for row in cursor:
             result.append (row)

@@ -17,12 +17,26 @@ class RequestHandler:
         result['rqty'] = row[8]
         return result
 
-    def getAllRequest(self):
+    def build_allreq_dict(self, row):
+        result = {}
+        result['reqid'] = row[0]
+        result['rid'] = row[1]
+        result['rname'] = row[2]
+        result['uid'] = row[3]
+        result['reqtype'] = row[4]
+        result['reqdate'] = row[5]
+        result['expdeliverydate'] = row[6]
+        result['carrier'] = row[7]
+        result['reqstatus'] = row[8]
+        result['rqty'] = row[9]
+        return result
+
+    def getAllRequestSortingByName(self):
         dao = RequestDAO()
-        request_list = dao.getAllRequest()
+        request_list = dao.getAllRequestSortingByName()
         result_list = []
         for row in request_list:
-            result = self.build_req_dict(row)
+            result = self.build_allreq_dict(row)
             result_list.append(result)
         return jsonify(result_list)
 
