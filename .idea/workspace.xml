@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e462bdfc-50fa-457f-b962-3457d2c88b1c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dao/PurchaseDAO.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/handler/parts.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/UserDAO.py" afterPath="$PROJECT_DIR$/dao/UserDAO.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/PurchaseHandler.py" afterPath="$PROJECT_DIR$/handler/PurchaseHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/RequestHandler.py" afterPath="$PROJECT_DIR$/handler/RequestHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/UserHandler.py" afterPath="$PROJECT_DIR$/handler/UserHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +21,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="115" column="45" lean-forward="true" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
+            <state relative-caret-position="226">
+              <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -30,37 +30,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestHandler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/handler/RequestHandler.py">
+      <file leaf-file-name="PurchaseHandler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/handler/PurchaseHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-74">
-              <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="22" />
+            <state relative-caret-position="-152">
+              <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/handler/UserHandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-946">
-              <caret line="112" column="33" lean-forward="true" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDAO.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/UserDAO.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="131" column="80" lean-forward="false" selection-start-line="131" selection-start-column="80" selection-end-line="131" selection-end-column="80" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,14 +67,16 @@
         <option value="$PROJECT_DIR$/dao/supplier.py" />
         <option value="$PROJECT_DIR$/handler/supplier.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/dao/RequestDAO.py" />
         <option value="$PROJECT_DIR$/handler/ResourcesHandler.py" />
         <option value="$PROJECT_DIR$/dao/ResourcesDAO.py" />
         <option value="$PROJECT_DIR$/dao/UserDAO.py" />
         <option value="$PROJECT_DIR$/handler/UserHandler.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dao/RequestDAO.py" />
         <option value="$PROJECT_DIR$/handler/RequestHandler.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/handler/PurchaseHandler.py" />
+        <option value="$PROJECT_DIR$/dao/PurchaseDAO.py" />
       </list>
     </option>
   </component>
@@ -450,14 +428,27 @@
       <option name="project" value="LOCAL" />
       <updated>1515462716337</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Finished User handler, resources handler classes, added respective queries.">
+      <created>1515511730545</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1515511730545</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Finished Request handler class">
+      <created>1515521518337</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1515521518337</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="29" width="1132" height="743" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19257951" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19257951" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39351198" sideWeight="0.2941696" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.48857144" order="7" side_tool="false" content_ui="tabs" />
@@ -493,7 +484,9 @@
     <MESSAGE value="Fixed getResourcesById method" />
     <MESSAGE value="Implemented getRequestById, getAllRequest, created requestdao" />
     <MESSAGE value="Major additions to the ResourcesHandler class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Major additions to the ResourcesHandler class" />
+    <MESSAGE value="Finished User handler, resources handler classes, added respective queries." />
+    <MESSAGE value="Finished Request handler class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Request handler class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -644,9 +637,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#25#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -665,9 +656,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#25#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -743,16 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dao/RequestDAO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#37#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/handler/parts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -781,28 +760,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dao/UserDAO.py">
+    <entry file="file://$PROJECT_DIR$/dao/RequestDAO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="131" column="80" lean-forward="false" selection-start-line="131" selection-start-column="80" selection-end-line="131" selection-end-column="80" />
+        <state relative-caret-position="-299">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="18" selection-end-column="21" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/PurchaseHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/handler/ResourcesHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="153" column="65" lean-forward="true" selection-start-line="125" selection-start-column="4" selection-end-line="153" selection-end-column="65" />
+        <state relative-caret-position="343">
+          <caret line="153" column="65" lean-forward="true" selection-start-line="126" selection-start-column="8" selection-end-line="153" selection-end-column="65" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -811,8 +782,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="115" column="45" lean-forward="true" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
+        <state relative-caret-position="226">
+          <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -821,8 +792,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/handler/RequestHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-74">
-          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="22" />
+        <state relative-caret-position="198">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="36" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/PurchaseDAO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" column="55" lean-forward="false" selection-start-line="72" selection-start-column="55" selection-end-line="72" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/UserDAO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="50" column="25" lean-forward="false" selection-start-line="48" selection-start-column="12" selection-end-line="50" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/PurchaseHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>

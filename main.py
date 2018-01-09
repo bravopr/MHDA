@@ -83,11 +83,16 @@ def getSupplierByResourcesId(rid):
 
 ###############Purchase
 @app.route ('/MHDA/purchase/')
-def getPurchaseByPartId():
-    # return PartHandler().getSuppliersByPartId(pid)
-    return PurchaseHandler ().getDummyData ()
+def getPurchase():
+    if request.method == 'POST':
+        return PurchaseHandler().insertPurchase(request.form)
+    else:
+        if not request.args:
+            return PurchaseHandler().getAllPurchase()
+        else:
+            return PurchaseHandler().searchPurchase(request.args)
 
-
+'''
 @app.route ('/MHDA/purchase/<int:puid>')
 def getPurchaseById(puid):
     # return PartHandler().getSuppliersByPartId(pid)
@@ -98,7 +103,7 @@ def getPurchaseById(puid):
 def getPurchaseByProductIdAndCustomerID(pid, cid):
     pid = cid
     return PurchaseHandler ().getDummyData2 (pid)
-
+'''
 
 ################
 
