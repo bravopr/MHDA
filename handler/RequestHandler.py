@@ -36,6 +36,51 @@ class RequestHandler:
             result = self.build_req_dict(row)
         return jsonify(result)
 
+    def getRequestByResourcesId(self, rid):
+        dao = RequestDAO ()
+        request_list = dao.getRequestByResourcesId (rid)
+        result_list = []
+        for row in request_list:
+            result = self.build_req_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getRequestByUser(self, uid):
+        dao = RequestDAO ()
+        request_list = dao.getRequestByUser (uid)
+        result_list = []
+        for row in request_list:
+            result = self.build_req_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getRequestByType(self, reqtype):
+        dao = RequestDAO ()
+        request_list = dao.getRequestByType (reqtype)
+        result_list = []
+        for row in request_list:
+            result = self.build_req_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getRequestByCarrier(self, carrier):
+        dao = RequestDAO ()
+        request_list = dao.getRequestByCarrier (carrier)
+        result_list = []
+        for row in request_list:
+            result = self.build_req_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getRequestByStatus(self, reqstatus):
+        dao = RequestDAO ()
+        request_list = dao.getRequestByStatus (reqstatus)
+        result_list = []
+        for row in request_list:
+            result = self.build_req_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
     def searchRequest(self, args):
         reqid_filter = args.get("reqid")
         rid_filter = args.get("rid")
@@ -43,8 +88,8 @@ class RequestHandler:
         reqtype_filter = args.get ("reqtype")
         reqdate_filter = args.get ("reqdate")
         expdeliverydate_filter = args.get("expdeliverydate")
-        carrier_filter = args.get ("rqty")
-        reqstatus_filter = args.get ("rregion")
+        carrier_filter = args.get ("carrier")
+        reqstatus_filter = args.get ("reqstatus")
         #rqty_filter = args.get ("rqty")
         if (len(args) == 1) and reqid_filter:
             return (RequestHandler().getRequestById(reqid_filter))
@@ -54,10 +99,10 @@ class RequestHandler:
             return (RequestHandler ().getRequestByUser (uid_filter))
         elif (len (args) == 1) and reqtype_filter:
             return (RequestHandler ().getRequestByType (reqtype_filter))
-        elif (len(args) == 1) and reqdate_filter:
-            return (RequestHandler ().getRequestByReqDate (reqdate_filter))
-        elif (len(args) == 1) and expdeliverydate_filter:
-            return (RequestHandler ().getRequestByExpDevDate (expdeliverydate_filter))
+        #elif (len(args) == 1) and reqdate_filter:
+        #    return (RequestHandler ().getRequestByReqDate (reqdate_filter))
+        #elif (len(args) == 1) and expdeliverydate_filter:
+        #    return (RequestHandler ().getRequestByExpDevDate (expdeliverydate_filter))
         elif (len(args) == 1) and carrier_filter:
             return (RequestHandler ().getRequestByCarrier (carrier_filter))
         elif (len(args) == 1) and reqstatus_filter:
@@ -69,3 +114,13 @@ class RequestHandler:
 
     def insertRequest(self, form):
         pass
+
+
+
+
+
+
+
+
+
+
