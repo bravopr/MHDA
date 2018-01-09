@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e462bdfc-50fa-457f-b962-3457d2c88b1c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/handler/CustomerHandler.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/ResourcesDAO.py" afterPath="$PROJECT_DIR$/dao/ResourcesDAO.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/PurchaseHandler.py" afterPath="$PROJECT_DIR$/handler/PurchaseHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/RequestHandler.py" afterPath="$PROJECT_DIR$/handler/RequestHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/ResourcesHandler.py" afterPath="$PROJECT_DIR$/handler/ResourcesHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/UserHandler.py" afterPath="$PROJECT_DIR$/handler/UserHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,10 +15,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
+            <state relative-caret-position="-174">
               <caret line="54" column="28" lean-forward="false" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -32,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourcesHandler.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResourcesHandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/ResourcesHandler.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -484,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515439507290</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Major additions to the ResourcesHandler class">
+      <created>1515462692503</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1515462692503</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -526,7 +528,8 @@
     <MESSAGE value="Changes on readme" />
     <MESSAGE value="Fixed getResourcesById method" />
     <MESSAGE value="Implemented getRequestById, getAllRequest, created requestdao" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented getRequestById, getAllRequest, created requestdao" />
+    <MESSAGE value="Major additions to the ResourcesHandler class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Major additions to the ResourcesHandler class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -831,16 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="54" column="28" lean-forward="false" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dao/ResourcesDAO.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -857,6 +850,16 @@
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="22" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-174">
+          <caret line="54" column="28" lean-forward="false" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
