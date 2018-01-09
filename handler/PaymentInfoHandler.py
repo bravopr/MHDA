@@ -1,7 +1,6 @@
 from flask import jsonify
 from dao.PaymentInfoDAO import PaymentInfoDAO
 
-
 class PaymentInfoHandler:
     def build_pur_dict(self, row):
         result = {}
@@ -23,7 +22,7 @@ class PaymentInfoHandler:
 
     def getPaymentInfoByUserId(self, uid):
         dao = PaymentInfoDAO ()
-        request_list = dao.getPaymentInfoByUserId (uid)
+        request_list = dao.getPaymentInfoByUserID (uid)
         result_list = []
         for row in request_list:
             result = self.build_pur_dict (row)

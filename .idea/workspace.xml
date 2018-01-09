@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e462bdfc-50fa-457f-b962-3457d2c88b1c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/PaymentInfoDAO.py" afterPath="$PROJECT_DIR$/dao/PaymentInfoDAO.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/PaymentInfoHandler.py" afterPath="$PROJECT_DIR$/handler/PaymentInfoHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/PurchaseHandler.py" afterPath="$PROJECT_DIR$/handler/PurchaseHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/RequestHandler.py" afterPath="$PROJECT_DIR$/handler/RequestHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,8 +31,8 @@
       <file leaf-file-name="PaymentInfoHandler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handler/PaymentInfoHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+            <state relative-caret-position="315">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -45,8 +43,8 @@
       <file leaf-file-name="PaymentInfoDAO.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dao/PaymentInfoDAO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+            <state relative-caret-position="242">
+              <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="30" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -470,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515533741099</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Changes to PaymentInfoHandler and DAO">
+      <created>1515534413154</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1515534413154</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -517,7 +522,8 @@
     <MESSAGE value="Finished Request handler class" />
     <MESSAGE value="PurchaseHandler class and PurchaseDAO class finished" />
     <MESSAGE value="PaymentInfoHandler created, started implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="PaymentInfoHandler created, started implementation" />
+    <MESSAGE value="Changes to PaymentInfoHandler and DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to PaymentInfoHandler and DAO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -863,8 +869,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dao/PaymentInfoDAO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        <state relative-caret-position="242">
+          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="30" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -873,8 +879,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/handler/PaymentInfoHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
