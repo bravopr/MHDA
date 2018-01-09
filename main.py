@@ -13,8 +13,14 @@ def greeting():
 
 #All Users
 @app.route ('/MHDA/users/')
-def getAllUsers():
-    return UserHandler ().getAllUsers ()
+def getUsers():
+    if request.method == 'POST':
+        return UserHandler().insertResource(request.form)
+    else:
+        if not request.args:
+            return UserHandler().getAllUsers()
+        else:
+            return UserHandler().searchUsers(request.args)
 
 @app.route ('/MHDA/users/<int:uid>')
 def getUserById(uid):
@@ -41,20 +47,13 @@ def getAllSuppliers():
 def getSupplierById(uid):
     return UserHandler ().getSupplierById (uid)
 
-'''
-@app.route ('/MHDA/suppliers/<int:sid>/products/')
-def getPartsBySuplierId(sid):
-    # return SupplierHandler().getPartsBySupplierId(sid)
-    return UserHandler ().getDummyData2 (sid)
-'''
 
 ################
 
 ################ Resources
 
 @app.route('/MHDA/resources/', methods=['GET', 'POST'])
-def getAllResources():
-
+def getResources():
     if request.method == 'POST':
         return ResourcesHandler().insertResource(request.form)
     else:
@@ -80,19 +79,6 @@ def getResourcesBySupplierId(uid):
 def getSupplierByResourcesId(rid):
     return ResourcesHandler ().getSupplierByResourcesId(rid)
 
-'''
-@app.route ('/MHDA/products/<int:pid>/suppliers/')
-def getProductsByPartId(pid):
-    # return PartHandler().getSuppliersByPartId(pid)
-    return ProductHandler ().getDummyData2 (pid)
-
-
-@app.route ('/MHDA/products/<int:pid>/category')
-def getProductByPartIdCategory(pid):
-    # return PartHandler().getSuppliersByPartId(pid)
-    return ProductHandler ().getDummyData2 (pid)
-
-'''
 ################
 
 ###############Purchase
@@ -118,9 +104,16 @@ def getPurchaseByProductIdAndCustomerID(pid, cid):
 
 ############ Request
 
+
 @app.route ('/MHDA/request/')
-def getAllRequest():
-    return RequestHandler ().getAllRequest ()
+def getRequest():
+    if request.method == 'POST':
+        return RequestHandler().insertRequest(request.form)
+    else:
+        if not request.args:
+            return RequestHandler().getAllRequest()
+        else:
+            return RequestHandler().searchRequest(request.args)
 
 
 @app.route ('/MHDA/request/<int:reqid>/')

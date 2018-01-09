@@ -107,13 +107,115 @@ class UserHandler:
     def getResourcesBySupplierId(self, uid):
         dao = UserDAO()
         if not dao.getResourcesBySupplierId(uid):
-            return jsonify(Error="Supplier Not Found"), 404
+            return jsonify(Error="ResourcesBySupplier Not Found"), 404
         resources_list = dao.getResourcesBySupplierId(uid)
         result_list = []
         for row in resources_list:
             result = self.getResourceBySupllierIDdic(row)
             result_list.append(result)
-        return jsonify(ResourcesSupply=result_list)
+        return jsonify(ResourcesBySupplier=result_list)
+
+    def getUserByName(self, uname):
+        dao = UserDAO()
+        user_list = dao.getUserByName(uname)
+        result_list = []
+        if not user_list:
+            return jsonify(Error="Customers Not Found"), 404
+        else:
+            result = self.build_alluserinfo_dict(user_list)
+        return jsonify(result)
+
+    def getUserByLastname(self, ulast):
+        dao = UserDAO ()
+        user_list = dao.getUserByLastname (ulast)
+        result_list = []
+        if not user_list:
+            return jsonify (Error="Customers Not Found"), 404
+        else:
+            result = self.build_alluserinfo_dict (user_list)
+        return jsonify (result)
+
+    def getUserByType(self, utype):
+        dao = UserDAO ()
+        user_list = dao.getUserByType (utype)
+        result_list = []
+        for row in user_list:
+            result = self.build_alluserinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getUserByCity(self, ucity):
+        dao = UserDAO ()
+        user_list = dao.getUserByCity (ucity)
+        result_list = []
+        for row in user_list:
+            result = self.build_alluserinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getUserByRegion(self, uregion):
+        dao = UserDAO ()
+        user_list = dao.getUserByRegion (uregion)
+        result_list = []
+        for row in user_list:
+            result = self.build_alluserinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getUserByZip(self, uzip):
+        dao = UserDAO ()
+        user_list = dao.getUserByZip (uzip)
+        result_list = []
+        for row in user_list:
+            result = self.build_alluserinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def getUserByState(self, ustate):
+        dao = UserDAO ()
+        user_list = dao.getUserByState (ustate)
+        result_list = []
+        for row in user_list:
+            result = self.build_alluserinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
+    def searchUsers(self, args):
+        uid_filter = args.get ("uid")
+        uname_filter = args.get ("uname")
+        ulast_filter = args.get ("ulast")
+        utype_filter = args.get ("utype")
+        #uaddress_filter = args.get ("uaddress")
+        ucity_filter = args.get ("ucity")
+        uregion_filter = args.get ("uregion")
+        uzip_filter = args.get ("uzip")
+        ustate_filter = args.get ("ustate")
+        loclat_filter = args.get ("loclat")
+        loclon_filter = args.get ("loclon")
+        if (len (args) == 1) and uid_filter:
+            return (UserHandler ().getUserById (uid_filter))
+        elif (len (args) == 1) and uname_filter:
+            return (UserHandler ().getUserByName (uname_filter))
+        elif (len (args) == 1) and ulast_filter:
+            return (UserHandler ().getUserByLastname (ulast_filter))
+        elif (len (args) == 1) and utype_filter:
+            return (UserHandler ().getUserByType (utype_filter))
+        #elif (len (args) == 1) and uaddress_filter:
+        #    return (UserHandler ().getUserByAddress (uaddress_filter))
+        elif (len (args) == 1) and ucity_filter:
+            return (UserHandler ().getUserByCity (ucity_filter))
+        elif (len (args) == 1) and uregion_filter:
+            return (UserHandler ().getUserByRegion (uregion_filter))
+        elif (len (args) == 1) and uzip_filter:
+            return (UserHandler ().getUserByZip (uzip_filter))
+        elif (len (args) == 1) and ustate_filter:
+            return (UserHandler ().getUserByState (ustate_filter))
+        #elif (len (args) == 1) and loclat_filter:
+        #    return (UserHandler ().getUserByloclat (loclat_filter))
+        #elif (len (args) == 1) and loclon_filter:
+        #    return (UserHandler ().getUserByloclon (loclon_filter))
+        else:
+            return jsonify (Error="Malformed query string"), 400
     '''
     def searchSuppliers(self, args):
         if len(args) > 1:
@@ -132,4 +234,21 @@ class UserHandler:
                 return jsonify(Error="Malformed search string."), 400
 
 '''
+
+    def insertResource(self, form):
+        pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

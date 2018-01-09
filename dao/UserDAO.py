@@ -76,3 +76,62 @@ class UserDAO:
         for row in cursor:
             result.append(row)
         return result
+
+    def getUserByName(self, uname):
+        cursor = self.conn.cursor ()
+        query = "select * from users natural inner join useraddress where uname = %s;"
+        cursor.execute (query, (uname,))
+        result = cursor.fetchone ()
+        return result
+
+    def getUserByLastname(self, ulast):
+        cursor = self.conn.cursor ()
+        query = "select * from users natural inner join useraddress where ulast = %s;"
+        cursor.execute (query, (ulast,))
+        result = cursor.fetchone ()
+        return result
+
+    def getUserByType(self,utype):
+        cursor = self.conn.cursor ()
+        query = "select * from users natural inner join useraddress where utype = %s;"
+        cursor.execute (query, (utype,))
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result
+
+    def getUserByCity(self, ucity):
+        cursor = self.conn.cursor ()
+        query = "select * from users natural inner join useraddress where ucity = %s;"
+        cursor.execute (query, (ucity,))
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result
+
+    def getUserByRegion(self, uregion):
+        cursor = self.conn.cursor ()
+        query = "select * from users natural inner join useraddress where uregion = %s;"
+        cursor.execute (query, (uregion,))
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result
+
+    def getUserByZip(self, uzip):
+        cursor = self.conn.cursor ()
+        query = "select * from users natural inner join useraddress where uzip = %s;"
+        cursor.execute (query, (uzip,))
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result
+
+    def getUserByState(self, ustate):
+        cursor = self.conn.cursor ()
+        query = "select * from users natural inner join useraddress where ustate = %s;"
+        cursor.execute (query, (ustate,))
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result
