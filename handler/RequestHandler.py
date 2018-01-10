@@ -95,10 +95,20 @@ class RequestHandler:
             result_list.append (result)
         return jsonify (result_list)
 
+    def getRequestSortingByName(self, rname):
+        dao = RequestDAO ()
+        request_list = dao.getRequestSortingByName (rname)
+        result_list = []
+        for row in request_list:
+            result = self.build_allreq_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
     def searchRequest(self, args):
         reqid_filter = args.get("reqid")
         rid_filter = args.get("rid")
         uid_filter = args.get("uid")
+        rname_filter = args.get ("rname")
         reqtype_filter = args.get ("reqtype")
         reqdate_filter = args.get ("reqdate")
         expdeliverydate_filter = args.get("expdeliverydate")
@@ -111,6 +121,8 @@ class RequestHandler:
             return (RequestHandler ().getRequestByResourcesId (rid_filter))
         elif (len(args) == 1) and uid_filter:
             return (RequestHandler ().getRequestByUser (uid_filter))
+        elif (len(args) == 1) and rname_filter:
+            return (RequestHandler ().getRequestSortingByName (rname_filter))
         elif (len (args) == 1) and reqtype_filter:
             return (RequestHandler ().getRequestByType (reqtype_filter))
         #elif (len(args) == 1) and reqdate_filter:
@@ -128,6 +140,8 @@ class RequestHandler:
 
     def insertRequest(self, form):
         pass
+
+
 
 
 

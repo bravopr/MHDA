@@ -132,10 +132,20 @@ class ResourcesHandler:
             result_list.append (result)
         return jsonify (result_list)
 
+    def getResourcesAvailable(self, rname):
+        dao = ResourcesDAO ()
+        resources_list = dao.getResourcesAvailable (rname)
+        result_list = []
+        for row in resources_list:
+            result = self.build_allresourcesinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
     def searchResources(self, args):
         rid_filter = args.get("rid")
         uid_filter = args.get("uid")
         rname_filter = args.get("rname")
+        rname_available_filter = args.get("rname_available")
         rprice_filter = args.get ("rprice")
         descpercent_filter = args.get ("descpercent")
         rcategory_filter = args.get("rcategory")
@@ -147,6 +157,8 @@ class ResourcesHandler:
             return (ResourcesHandler ().getSupplierByResourcesId (uid_filter))
         elif (len(args) == 1) and rname_filter:
             return (ResourcesHandler ().getResourceByName (rname_filter))
+        elif (len(args) == 1) and rname_available_filter:
+            return (ResourcesHandler ().getResourcesAvailable (rname_available_filter))
         elif (len (args) == 1) and rprice_filter:
             return (ResourcesHandler ().getResourceByPrice (rprice_filter))
         elif (len(args) == 1) and descpercent_filter:
@@ -165,6 +177,10 @@ class ResourcesHandler:
 
     def insertResource(self, form):
         pass
+
+
+
+
 
 
 

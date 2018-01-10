@@ -18,6 +18,15 @@ class RequestDAO:
             result.append (row)
         return result
 
+    def getRequestSortingByName(self,rname):
+        cursor = self.conn.cursor ()
+        query = "select req.reqid ,req.rid ,r.rname,req.uid,req.reqtype,req.reqdate,req.expdeliverydate,req.carrier,req.reqstatus,req.rqty from resources r, request as req WHERE r.rid=req.rid AND rname = %s order by rname;"
+        cursor.execute (query)
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result
+
     def getRequestById(self, reqid):
         cursor = self.conn.cursor ()
         query = "select * from request where reqid = %s;"
