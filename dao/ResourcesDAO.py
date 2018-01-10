@@ -112,3 +112,12 @@ class ResourcesDAO:
         for row in cursor:
             result.append (row)
         return result
+
+    def getResourceByNameAndRegion(self, rname, rregion):
+        cursor = self.conn.cursor ()
+        query = "select * from resources where rname = %s and rregion = %s AND rqty > 0;"
+        cursor.execute (query, (rname, rregion))
+        result = []
+        for row in cursor:
+            result.append (row)
+        return result

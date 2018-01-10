@@ -141,6 +141,15 @@ class ResourcesHandler:
             result_list.append (result)
         return jsonify (result_list)
 
+    def getResourceByNameAndRegion(self, rname, rregion):
+        dao = ResourcesDAO ()
+        resources_list = dao.getResourceByNameAndRegion (rname, rregion)
+        result_list = []
+        for row in resources_list:
+            result = self.build_allresourcesinfo_dict (row)
+            result_list.append (result)
+        return jsonify (result_list)
+
     def searchResources(self, args):
         rid_filter = args.get("rid")
         uid_filter = args.get("uid")
@@ -171,12 +180,16 @@ class ResourcesHandler:
             return (ResourcesHandler ().getResourceByQty (rqty_filter))
         elif (len(args) == 2) and rcategory_filter and rregion_filter:
             return (ResourcesHandler ().getResourceByCategoryAndRegion (rcategory_filter,rregion_filter))
+        elif (len(args) == 2) and rname_filter and rregion_filter:
+            return (ResourcesHandler ().getResourceByNameAndRegion (rname_filter,rregion_filter))
         else:
             return jsonify(Error = "Malformed query string"), 400
 
 
     def insertResource(self, form):
         pass
+
+
 
 
 
