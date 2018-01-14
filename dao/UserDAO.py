@@ -6,7 +6,7 @@ from urllib import parse
 class UserDAO:
     def __init__(self):
         parse.uses_netloc.append ("postgres")
-        url = parse.urlparse (os.environ["DATABASE_URL"])
+        url = parse.urlparse (os.environ["postgres://kpdzooxfutqlrm:ce242d41c1020de6e60a20b96ba8352dd36b8846f227d0121e97441b93a5614f@ec2-54-221-251-195.compute-1.amazonaws.com:5432/ddr77pabo2btb2"])
 
         conn = psycopg2.connect (
             database=url.path[1:],
