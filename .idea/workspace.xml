@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e462bdfc-50fa-457f-b962-3457d2c88b1c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Procfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/PurchaseHandler.py" afterPath="$PROJECT_DIR$/handler/PurchaseHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/RequestHandler.py" afterPath="$PROJECT_DIR$/handler/RequestHandler.py" />
     </list>
@@ -16,11 +16,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="44">
               <caret line="4" column="41" lean-forward="false" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="52" lean-forward="true" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -564,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515968301343</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added some more heroku files v2">
+      <created>1515968811329</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1515968811329</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -595,7 +612,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First Commit" />
     <MESSAGE value="Test: Hardwired results with different paths" />
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Second Commit" />
@@ -620,7 +636,8 @@
     <MESSAGE value="Phase II Completed without ER" />
     <MESSAGE value="Added some heroku files" />
     <MESSAGE value="Added some more heroku files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some more heroku files" />
+    <MESSAGE value="Added some more heroku files v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some more heroku files v2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -917,13 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/dbconfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -956,10 +966,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
+    <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+        <state relative-caret-position="135">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -968,6 +978,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="4" column="41" lean-forward="false" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="52" lean-forward="true" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
           <folding />
         </state>
       </provider>
