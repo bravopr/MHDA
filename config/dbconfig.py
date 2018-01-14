@@ -1,8 +1,8 @@
 #Databse configuration information
 
-#pg_config = {
+pg_config = {
     #port: 5432
-#    'user' : 'appusr',
-#    'passwd' : 'appusr1',
-#    'dbname' : 'appdb'
-#}
+    'user' : 'appusr',
+   'passwd' : 'appusr1',
+    'dbname' : 'appdb'
+}
