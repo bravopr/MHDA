@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e462bdfc-50fa-457f-b962-3457d2c88b1c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/PaymentInfoDAO.py" afterPath="$PROJECT_DIR$/dao/PaymentInfoDAO.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/PurchaseDAO.py" afterPath="$PROJECT_DIR$/dao/PurchaseDAO.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/RequestDAO.py" afterPath="$PROJECT_DIR$/dao/RequestDAO.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/ResourcesDAO.py" afterPath="$PROJECT_DIR$/dao/ResourcesDAO.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,14 +14,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="91" column="32" lean-forward="true" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+            <state relative-caret-position="227">
+              <caret line="100" column="39" lean-forward="false" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="30" lean-forward="true" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,7 +59,6 @@
       <list>
         <option value="$PROJECT_DIR$/dao/supplier.py" />
         <option value="$PROJECT_DIR$/handler/supplier.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/handler/UserHandler.py" />
         <option value="$PROJECT_DIR$/handler/PurchaseHandler.py" />
         <option value="$PROJECT_DIR$/handler/PaymentInfoHandler.py" />
@@ -71,6 +77,7 @@
         <option value="$PROJECT_DIR$/dao/PaymentInfoDAO.py" />
         <option value="$PROJECT_DIR$/dao/RequestDAO.py" />
         <option value="$PROJECT_DIR$/dao/ResourcesDAO.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -592,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515972895529</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Phase 2 v1">
+      <created>1516048370816</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1516048370816</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -623,7 +637,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented getRequestById, getAllRequest, created requestdao" />
     <MESSAGE value="Major additions to the ResourcesHandler class" />
     <MESSAGE value="Finished User handler, resources handler classes, added respective queries." />
     <MESSAGE value="Finished Request handler class" />
@@ -648,7 +661,8 @@
     <MESSAGE value="test database urlv2" />
     <MESSAGE value="test database url v3" />
     <MESSAGE value="test database url v4" />
-    <option name="LAST_COMMIT_MESSAGE" value="test database url v4" />
+    <MESSAGE value="Phase 2 v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Phase 2 v1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -849,13 +863,6 @@
     <entry file="file://$PROJECT_DIR$/ProjectsDocs/README2.txt" />
     <entry file="file://$PROJECT_DIR$/ProjectsDocs/README.txt" />
     <entry file="file://$PROJECT_DIR$/dao/parts.py" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socketserver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1009,11 +1016,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="91" column="32" lean-forward="true" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+        <state relative-caret-position="227">
+          <caret line="100" column="39" lean-forward="false" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" lean-forward="true" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
