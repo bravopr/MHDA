@@ -21,15 +21,24 @@ PaymentInfo- Holds the credit card of every user registered in the database.
 
 The application is organized in three broad layers:
 
-Main- Main app module takes care to setup the routes for the Rest API and calling the proper handler objects to process the request.
-Handlers- Handlers takes care of implementing the logic of each REST call. Each handler rely upon the Data Access Objects to extract data from the database, based on the type pf request for a data. They provide the appropriate HTTP response code.
-DAOs- Data Access Objects (DAOs) take care of moving data in and out of the database engine by making SQL queries and wrapping the results in the objects and object list of appropiate types. For phase 1, all the DAOs are hardwired.
-Requirements
-The following software is required to run this application:
+A) App- Main app module takes care to setup the routes for the Rest API and calling the proper handler objects to process the request.
+
+B) Handlers- Handlers takes care of implementing the logic of each REST call. Each handler rely upon the Data Access Objects to extract data from the database, based on the type pf request for a data. They provide the appropriate HTTP response code.
+
+C) DAOs- Data Access Objects (DAOs) take care of moving data in and out of the database engine by making SQL queries and wrapping the results in the objects and object list of appropiate types. For phase 1, all the DAOs are hardwired.
+
+Requirements:
+
+*The following software is required to run this application*
+
 Pyscopg2 - library to connect to PostgreSQL form Python
+
 Flask - web bases framework to implement the REST API.
+
 PostgreSQL - database engine
+
 PgAdmin3 - app to manage the databases
+
 To run the application, run the main.py file.
 
 
