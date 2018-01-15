@@ -6,11 +6,17 @@ The data of the application is managed by a relational database system, and expo
 The application manages data from the following tables:
 
 User- The person who either is the administrator of the database system, a person who needs resources or a person who supplies resources
+
 Request- The requests made by a user for one or more resources.
+
 Resources- Resources that are being requested and shows the availability of the requested resources
+
 Request Details- has all the requests made by users with all the details of each request, including date requested, quantity and status.
+
 Purchase- Shows the purchases made by each user, including purchase date, resources purchased or reserved, quantity and requests.
+
 UserAddress- Address where the user is located at.
+
 PaymentInfo- Holds the credit card of every user registered in the database.
 
 The application is organized in three broad layers:
