@@ -9,7 +9,15 @@ app = Flask (__name__)
 
 @app.route ('/')
 def greeting():
-    return 'Hello, this is the Maria Hurricane Disaster App (MHDA)!'
+    with open ("welcome.txt", "r") as f:
+        content = f.read ()
+    return content
+
+@app.route ('/MHDA/')
+def greeting2():
+    with open ("welcome.txt", "r") as f:
+        content = f.read ()
+    return content
 
 #All Users
 @app.route ('/MHDA/users/')
