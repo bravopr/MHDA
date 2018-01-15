@@ -39,6 +39,6 @@ PostgreSQL - database engine
 
 PgAdmin3 - app to manage the databases
 
-To run the application, run the main.py file.
+To run the application, run the app.py file.
 
 
