@@ -31,18 +31,18 @@ class PaymentInfoHandler:
 
     def getPaymentInfoByUserId(self, uid):
         dao = PaymentInfoDAO ()
-        request_list = dao.getPaymentInfoByUserID (uid)
-        result_list = []
-        for row in request_list:
+        row = dao.getPaymentInfoByUserID (uid)
+        if not row:
+            return jsonify (Error="Request Not Found userID"), 404
+        else:
             result = self.build_paymentinfo_dict (row)
-            result_list.append (result)
-        return jsonify (result_list)
+        return jsonify (result)
 
     def getPaymentInfoByCCNumber(self, ccnumber):
         dao = PaymentInfoDAO ()
         row = dao.getPaymentInfoByCCNumber (ccnumber)
         if not row:
-            return jsonify (Error="Request Not Found"), 404
+            return jsonify (Error="Request Not Found CCNumber"), 404
         else:
             result = self.build_paymentinfo_dict (row)
         return jsonify (result)
@@ -50,9 +50,9 @@ class PaymentInfoHandler:
     def searchPayment(self, args):
         uid_filter = args.get ("uid")
         ccnumber_filter = args.get ("ccnumber")
-        #ccv_filter = args.get ("ccv")
-        #validdate_filter = args.get ("validdate")
-        #expdate_filter = args.get ("expdate")
+        ccv_filter = args.get ("ccv")
+        validdate_filter = args.get ("validdate")
+        expdate_filter = args.get ("expdate")
 
         if (len (args) == 1) and uid_filter:
             return (PaymentInfoHandler ().getPaymentInfoByUserId (uid_filter))
@@ -65,43 +65,43 @@ class PaymentInfoHandler:
         #elif (len (args) == 1) and expdate_filter:
         #   return (PaymentInfoHandler ().getPaymentInfoByExpDate (expdate_filter))
         else:
-            return jsonify (Error="Malformed query string"), 400
+            return jsonify (Error="Malformed query string searchPayment"), 400
 
-    def insertPaymentInfo(self, form):
+    def insertPayment(self, form):
         dao = PaymentInfoDAO ()
         if len (form) != 5:
-            return jsonify (Error="Malformed post request"), 400
+            return jsonify (Error="Malformed insertPaymentInfo post request"), 400
         else:
             uid = form['uid']
             ccnumber = form['ccnumber']
             ccv = form['ccv']
-            validate = form['validate']
+            validdate = form['validdate']
             expdate = form['expdate']
 
-            if uid and ccnumber and ccv and validate and expdate and dao.getPaymentInfoByUserID(uid):
-                dao.insert (uid,ccnumber,ccv,validate,expdate)
-                result = self.build_paymentinfo_dict2 (uid,ccnumber,ccv,validate,expdate)
+            if uid and ccnumber and ccv and validdate and expdate:
+                dao.insert (uid,ccnumber,ccv,validdate,expdate)
+                result = self.build_paymentinfo_dict2 (uid,ccnumber,ccv,validdate,expdate)
                 return jsonify (User=result), 201
             else:
                 return jsonify (Error="Unexpected attributes in post request"), 400
 
-    def updatePaymentInfo(self, uid, form):
+    def updatePaymentInfo(self, uid1, form):
         dao = PaymentInfoDAO ()
-        if not dao.getPaymentInfoByUserID (uid):
+        if not dao.getPaymentInfoByUserID (uid1):
             return jsonify (Error="Malformed update request"), 400
         else:
             uid = form['uid']
             ccnumber = form['ccnumber']
             ccv = form['ccv']
-            validate = form['validate']
+            validdate = form['validdate']
             expdate = form['expdate']
 
-            if uid and ccnumber and ccv and validate and expdate and dao.getPaymentInfoByUserID (uid):
-                dao.update (uid, ccnumber, ccv, validate, expdate)
-                result = self.build_paymentinfo_dict2 (uid, ccnumber, ccv, validate, expdate)
+            if uid and ccnumber and ccv and validdate and expdate:
+                dao.update (uid, ccnumber, ccv, validdate, expdate)
+                result = self.build_paymentinfo_dict2 (uid, ccnumber, ccv, validdate, expdate)
                 return jsonify (User=result), 201
             else:
-                return jsonify (Error="Unexpected attributes in put request"), 400
+                return jsonify (Error="Unexpected attributes in put request updatePaymentInfo"), 400
 
     def deletePaymentInfo(self, uid):
         dao = PaymentInfoDAO ()

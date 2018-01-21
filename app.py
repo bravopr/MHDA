@@ -212,41 +212,68 @@ def getPurchaseByProductIdAndCustomerID(pid, cid):
 
 ############ PaymentInfo
 
-@app.route ('/MHDA/paymentinfo/')
+@app.route ('/MHDA/paymentinfo/', methods=['POST','PUT','DELETE','GET'])
 def getPaymentInfo():
     if request.method == 'POST':
         result = {}
         result['uid'] = request.args.get ('uid')
         result['ccnumber'] = request.args.get ('ccnumber')
         result['ccv'] = request.args.get ('ccv')
-        result['validate'] = request.args.get ('validate')
+        result['validdate'] = request.args.get ('validdate')
         result['expdate'] = request.args.get ('expdate')
-        return PaymentInfoHandler().insertPaymentInfo(result)
+        return PaymentInfoHandler().insertPayment(result)
 
     elif request.method == 'PUT':
         result = {}
         result['uid'] = request.args.get ('uid')
         result['ccnumber'] = request.args.get ('ccnumber')
         result['ccv'] = request.args.get ('ccv')
-        result['validate'] = request.args.get ('validate')
+        result['validdate'] = request.args.get ('validdate')
         result['expdate'] = request.args.get ('expdate')
         return PaymentInfoHandler ().updatePaymentInfo (result['uid'], result)
 
     elif request.method == 'DELETE':
         uid = request.args.get ('uid')
         return PaymentInfoHandler ().deletePaymentInfo (uid)
+
     else:
         if not request.args:
             return PaymentInfoHandler().getAllPaymentInfo()
         else:
+          #  return "here"
             return PaymentInfoHandler().searchPayment(request.args)
 
 ############ Request
 
-@app.route ('/MHDA/request/')
+@app.route ('/MHDA/request/', methods=['GET', 'POST','PUT','DELETE'])
 def getRequest():
     if request.method == 'POST':
-        return RequestHandler().insertRequest(request.form)
+        result = {}
+        #result['reqid'] = request.args.get ('reqid')
+        result['rid'] = request.args.get ('rid')
+        result['uid'] = request.args.get ('uid')
+        result['rqty'] = request.args.get ('rqty')
+        result['reqtype'] = request.args.get ('reqtype')
+        result['reqdate'] = request.args.get ('reqdate')
+        result['expdeliverydate'] = request.args.get ('expdeliverydate')
+        result['carrier'] = request.args.get ('carrier')
+        result['reqstatus'] = request.args.get ('reqstatus')
+        return RequestHandler().insertRequest(result)
+    elif request.method == 'PUT':
+        result = {}
+        result['reqid'] = request.args.get ('reqid')
+        result['rid'] = request.args.get ('rid')
+        result['uid'] = request.args.get ('uid')
+        result['rqty'] = request.args.get ('rqty')
+        result['reqtype'] = request.args.get ('reqtype')
+        result['reqdate'] = request.args.get ('reqdate')
+        result['expdeliverydate'] = request.args.get ('expdeliverydate')
+        result['carrier'] = request.args.get ('carrier')
+        result['reqstatus'] = request.args.get ('reqstatus')
+        return RequestHandler ().updateRequest (result['reqid'],result)
+    elif request.method == 'DELETE':
+        reqid = request.args.get ('reqid')
+        return RequestHandler ().deleteRequest (reqid)
     else:
         if not request.args:
             return RequestHandler().getAllRequestSortingByName()

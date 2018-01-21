@@ -155,7 +155,7 @@ class PurchaseHandler:
             if rid and reqid and uid and purdate and purprice and purqty and expdeliverydate and carrier and purstatus:
                 puridout = dao.insert (rid,reqid,uid,purdate,purprice,purqty, expdeliverydate, carrier, purstatus)
                 result = self.build_pur_dict2(puridout, rid, reqid, uid, purdate, purprice, purqty, expdeliverydate, carrier, purstatus)
-                return jsonify (Part=result), 201
+                return jsonify (Purchase=result), 201
             else:
                 return jsonify (Error="Unexpected attributes in post request"), 400
 
@@ -180,7 +180,7 @@ class PurchaseHandler:
             if purid and rid and reqid and uid and purdate and purprice and purqty and expdeliverydate and carrier and purstatus:
                 puridout = dao.update (purid, rid, reqid, uid, purdate, purprice, purqty, expdeliverydate, carrier, purstatus)
                 result = self.build_pur_dict2 (puridout, rid, reqid, uid, purdate, purprice, purqty, expdeliverydate, carrier, purstatus)
-                return jsonify (Part=result), 201
+                return jsonify (Purchase=result), 201
             else:
                 return jsonify (Error="Unexpected attributes in put request"), 400
 

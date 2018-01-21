@@ -5,7 +5,7 @@ from urllib import parse
 
 class PurchaseDAO:
     def __init__(self):
-        '''
+
         parse.uses_netloc.append ("postgres")
         url = parse.urlparse (os.environ["DATABASE_URL"])
 
@@ -21,7 +21,7 @@ class PurchaseDAO:
                                                             pg_config['user'],
                                                             pg_config['passwd'])
         self.conn = psycopg2._connect(connection_url)
-
+        '''
     def getAllPurchase(self):
         cursor = self.conn.cursor ()
         query = "select * from purchase;"

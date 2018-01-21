@@ -17,6 +17,19 @@ class RequestHandler:
         result['rqty'] = row[8]
         return result
 
+    def build_req_dict2(self, reqid,rid, uid, rqty, reqtype, reqdate, expdeliverydate, carrier, reqstatus):
+        result = {}
+        result['reqid'] = reqid
+        result['rid'] = rid
+        result['uid'] = uid
+        result['rqty'] = rqty
+        result['reqtype'] = reqtype
+        result['reqdate'] = reqdate
+        result['expdeliverydate'] = expdeliverydate
+        result['carrier'] = carrier
+        result['reqstatus'] = reqstatus
+        return result
+
     def build_allreq_dict(self, row):
         result = {}
         result['reqid'] = row[0]
@@ -139,7 +152,57 @@ class RequestHandler:
             return jsonify(Error = "Malformed query string"), 400
 
     def insertRequest(self, form):
-        pass
+        dao = RequestDAO ()
+        if len (form) != 8:
+            return jsonify (Error="Malformed post request"), 400
+        else:
+            rid = form['rid']
+            uid = form['uid']
+            rqty = form['rqty']
+            reqtype = form['reqtype']
+            reqdate = form['reqdate']
+            expdeliverydate = form['expdeliverydate']
+            carrier = form['carrier']
+            reqstatus = form['reqstatus']
+
+            if rid and uid and rqty and reqtype and reqdate and expdeliverydate and carrier and reqstatus:
+                reqid = dao.insert (rid, uid, rqty, reqtype, reqdate, expdeliverydate, carrier, reqstatus)
+                result = self.build_req_dict2 (reqid,rid, uid, rqty, reqtype, reqdate, expdeliverydate, carrier, reqstatus)
+                return jsonify (Request=result), 201
+            else:
+                return jsonify (Error="Unexpected attributes in post request"), 400
+
+    def updateRequest(self, reqid,form):
+        dao = RequestDAO ()
+        if not dao.getRequestById(reqid):
+            return jsonify (Error="Request not found."), 404
+        if len (form) != 9:
+            return jsonify (Error="Malformed post request"), 400
+        else:
+            reqid = form['reqid']
+            rid = form['rid']
+            uid = form['uid']
+            rqty = form['rqty']
+            reqtype = form['reqtype']
+            reqdate = form['reqdate']
+            expdeliverydate = form['expdeliverydate']
+            carrier = form['carrier']
+            reqstatus = form['reqstatus']
+
+            if reqid and rid and uid and rqty and reqtype and reqdate and expdeliverydate and carrier and reqstatus:
+                dao.update (reqid,rid, uid, rqty, reqtype, reqdate, expdeliverydate, carrier, reqstatus)
+                result = self.build_req_dict2 (reqid,rid, uid, rqty, reqtype, reqdate, expdeliverydate, carrier, reqstatus)
+                return jsonify (Request=result), 201
+            else:
+                return jsonify (Error="Unexpected attributes in put request"), 400
+
+    def deleteRequest(self, reqid):
+        dao = RequestDAO ()
+        if not dao.getRequestById (reqid):
+            return jsonify (Error="Cannot delete, purchase info not found."), 404
+        else:
+            dao.delete (reqid)
+            return jsonify (DeleteStatus="OK"), 200
 
 
 
