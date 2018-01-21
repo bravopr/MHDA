@@ -17,6 +17,20 @@ class PurchaseHandler:
         result['purstatus'] = row[9]
         return result
 
+    def build_pur_dict2(self, purid, rid, reqid, uid, purdate, purprice, purqty, expdeliverydate, carrier, purstatus):
+        result = {}
+        result['purid'] = purid
+        result['rid'] = rid
+        result['reqid'] = reqid
+        result['uid'] = uid
+        result['purdate'] = purdate
+        result['purprice'] = purprice
+        result['purqty'] = purqty
+        result['expdeliverydate'] = expdeliverydate
+        result['carrier'] = carrier
+        result['purstatus'] = purstatus
+        return result
+
     def getAllPurchase(self):
         dao = PurchaseDAO ()
         request_list = dao.getAllPurchase ()
@@ -26,14 +40,14 @@ class PurchaseHandler:
             result_list.append (result)
         return jsonify (result_list)
 
-    def getPurchaseById(self, purid):
+    def getPurchaseBypurId(self, purid):
         dao = PurchaseDAO ()
-        request_list = dao.getPurchaseById (purid)
-        result_list = []
-        for row in request_list:
+        row = dao.getPurchaseBypurId (purid)
+        if not row:
+            return jsonify (Error="Purchase Not Found"), 404
+        else:
             result = self.build_pur_dict (row)
-            result_list.append (result)
-        return jsonify (result_list)
+        return jsonify (result)
 
     def getPurchaseByResourcesId(self, rid):
         dao = PurchaseDAO ()
@@ -101,7 +115,7 @@ class PurchaseHandler:
         carrier_filter = args.get ("carrier")
         purstatus_filter = args.get ("purstatus")
         if (len (args) == 1) and purid_filter:
-            return (PurchaseHandler ().getPurchaseById (purid_filter))
+            return (PurchaseHandler ().getPurchaseBypurId(purid_filter))
         elif (len (args) == 1) and rid_filter:
             return (PurchaseHandler ().getPurchaseByResourcesId (rid_filter))
         elif (len (args) == 1) and reqid_filter:
@@ -124,8 +138,59 @@ class PurchaseHandler:
             return jsonify (Error="Malformed query string"), 400
 
     def insertPurchase(self, form):
-        pass
+        dao = PurchaseDAO ()
+        if len (form) != 9:
+            return jsonify (Error="Malformed post request"), 400
+        else:
+            rid = form['rid']
+            reqid = form['reqid']
+            uid = form['uid']
+            purdate = form['purdate']
+            purprice = form['purprice']
+            purqty = form['purqty']
+            expdeliverydate = form['expdeliverydate']
+            carrier = form['carrier']
+            purstatus = form['purstatus']
 
+            if rid and reqid and uid and purdate and purprice and purqty and expdeliverydate and carrier and purstatus:
+                puridout = dao.insert (rid,reqid,uid,purdate,purprice,purqty, expdeliverydate, carrier, purstatus)
+                result = self.build_pur_dict2(puridout, rid, reqid, uid, purdate, purprice, purqty, expdeliverydate, carrier, purstatus)
+                return jsonify (Part=result), 201
+            else:
+                return jsonify (Error="Unexpected attributes in post request"), 400
+
+    def updatePurchase(self, purid, form):
+        dao = PurchaseDAO ()
+        if not dao.getPurchaseBypurId (purid):
+            return jsonify (Error="Purchase not found."), 404
+        if len (form) != 10:
+            return jsonify (Error="Malformed post request"), 400
+        else:
+            purid = form['purid']
+            rid = form['rid']
+            reqid = form['reqid']
+            uid = form['uid']
+            purdate = form['purdate']
+            purprice = form['purprice']
+            purqty = form['purqty']
+            expdeliverydate = form['expdeliverydate']
+            carrier = form['carrier']
+            purstatus = form['purstatus']
+
+            if purid and rid and reqid and uid and purdate and purprice and purqty and expdeliverydate and carrier and purstatus:
+                puridout = dao.update (purid, rid, reqid, uid, purdate, purprice, purqty, expdeliverydate, carrier, purstatus)
+                result = self.build_pur_dict2 (puridout, rid, reqid, uid, purdate, purprice, purqty, expdeliverydate, carrier, purstatus)
+                return jsonify (Part=result), 201
+            else:
+                return jsonify (Error="Unexpected attributes in put request"), 400
+
+    def deletePurchase(self, purid):
+        dao = PurchaseDAO ()
+        if not dao.getPurchaseBypurId (purid):
+            return jsonify (Error="Cannot delete, purchase info not found."), 404
+        else:
+            dao.delete (purid)
+            return jsonify (DeleteStatus="OK"), 200
 
 
 

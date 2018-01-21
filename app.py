@@ -6,7 +6,7 @@ from handler.PurchaseHandler import PurchaseHandler
 from handler.PaymentInfoHandler import PaymentInfoHandler
 
 app = Flask (__name__)
-
+#app.run(debug=True)
 @app.route ('/')
 def greeting():
     with open ("welcome.txt", "r") as f:
@@ -20,10 +20,43 @@ def greeting2():
     return content
 
 #All Users
-@app.route ('/MHDA/users/')
+@app.route ('/MHDA/users/', methods=['GET', 'POST','PUT','DELETE'])
 def getUsers():
     if request.method == 'POST':
-        return UserHandler().insertResource(request.form)
+        userDic = {}
+        userDic['uname'] = request.args.get ('uname')
+        userDic['ulast'] = request.args.get ('ulast')
+        userDic['utype'] = request.args.get ('utype')
+        userAddressDic = {}
+        userAddressDic['uaddress'] = request.args.get ('uaddress')
+        userAddressDic['ucity'] = request.args.get ('ucity')
+        userAddressDic['uregion'] = request.args.get ('uregion')
+        userAddressDic['uzip'] = request.args.get ('uzip')
+        userAddressDic['ustate'] = request.args.get ('ustate')
+        userAddressDic['loclat'] = request.args.get ('loclat')
+        userAddressDic['loclon'] = request.args.get ('loclon')
+        return UserHandler().insertUser(userDic,userAddressDic)
+
+    elif request.method == 'PUT':
+        userDic = {}
+        userDic['uid'] = request.args.get ('uid')
+        userDic['uname'] = request.args.get ('uname')
+        userDic['ulast'] = request.args.get ('ulast')
+        userDic['utype'] = request.args.get ('utype')
+        userAddressDic = {}
+        userAddressDic['uaddress'] = request.args.get ('uaddress')
+        userAddressDic['ucity'] = request.args.get ('ucity')
+        userAddressDic['uregion'] = request.args.get ('uregion')
+        userAddressDic['uzip'] = request.args.get ('uzip')
+        userAddressDic['ustate'] = request.args.get ('ustate')
+        userAddressDic['loclat'] = request.args.get ('loclat')
+        userAddressDic['loclon'] = request.args.get ('loclon')
+        return UserHandler().updateUser(userDic,userAddressDic)
+
+    elif request.method == 'DELETE':
+        uid = request.args.get ('uid')
+        return UserHandler ().deleteUser (uid)
+
     else:
         if not request.args:
             return UserHandler().getAllUsers()
@@ -60,10 +93,35 @@ def getSupplierById(uid):
 
 ################ Resources
 
-@app.route('/MHDA/resources/', methods=['GET', 'POST'])
+@app.route('/MHDA/resources/', methods=['GET', 'POST','PUT','DELETE'])
 def getResources():
     if request.method == 'POST':
-        return ResourcesHandler().insertResource(request.form)
+        result = {}
+        result['uid'] = request.args.get('uid')
+        result['rname'] = request.args.get ('rname')
+        result['rprice'] = request.args.get ('rprice')
+        result['descpercent'] = request.args.get ('descpercent')
+        result['rcategory'] = request.args.get ('rcategory')
+        result['rqty'] = request.args.get ('rqty')
+        result['rregion'] = request.args.get ('rregion')
+        return ResourcesHandler().insertResource(result)
+
+    elif request.method == 'PUT':
+        result = {}
+        rid = request.args.get ('rid')
+        result['rid'] = rid
+        result['uid'] = request.args.get ('uid')
+        result['rname'] = request.args.get ('rname')
+        result['rprice'] = request.args.get ('rprice')
+        result['descpercent'] = request.args.get ('descpercent')
+        result['rcategory'] = request.args.get ('rcategory')
+        result['rqty'] = request.args.get ('rqty')
+        result['rregion'] = request.args.get ('rregion')
+        return ResourcesHandler ().updateResource (rid, result)
+
+    elif request.method == 'DELETE':
+        rid = request.args.get ('rid')
+        return ResourcesHandler ().deleteResource (rid)
     else:
         if not request.args:
             return ResourcesHandler().getAllResources()
@@ -74,15 +132,18 @@ def getResources():
 def getAllResources():
         return ResourcesHandler ().getAllResourcesAvailable ()
 
-'''       
-@app.route ('/MHDA/resources/')
-def getAllResources():
-    return ResourcesHandler ().getAllResources()
+'''
+@app.route ('/MHDA/resources/maxid')
+def getMaxID():
+    return ResourcesHandler ().getMaxID()
 '''
 
-@app.route ('/MHDA/resources/<int:rid>')
+@app.route ('/MHDA/resources/<int:rid>', methods=['GET'])
 def getResourceById(rid):
-    return ResourcesHandler ().getResourceById(rid)
+    if request.method == 'GET':
+        return ResourcesHandler ().getResourceById (rid)
+    else:
+        return jsonify (Error="Method not allowed."), 405
 
 @app.route ('/MHDA/resources/supplier/<int:uid>')
 def getResourcesBySupplierId(uid):
@@ -95,10 +156,39 @@ def getSupplierByResourcesId(rid):
 ################
 
 ###############Purchase
-@app.route ('/MHDA/purchase/')
+@app.route ('/MHDA/purchase/', methods=['GET', 'POST','PUT','DELETE'])
 def getPurchase():
     if request.method == 'POST':
-        return PurchaseHandler().insertPurchase(request.form)
+        result = {}
+        result['rid'] = request.args.get('rid')
+        result['reqid'] = request.args.get ('reqid')
+        result['uid'] = request.args.get ('uid')
+        result['purdate'] = request.args.get ('purdate')
+        result['purprice'] = request.args.get ('purprice')
+        result['purqty'] = request.args.get ('purqty')
+        result['expdeliverydate'] = request.args.get ('expdeliverydate')
+        result['carrier'] = request.args.get ('carrier')
+        result['purstatus'] = request.args.get ('purstatus')
+        return PurchaseHandler().insertPurchase(result)
+
+    elif request.method == 'PUT':
+        result = {}
+        result['purid'] = request.args.get ('purid')
+        result['rid'] = request.args.get ('rid')
+        result['reqid'] = request.args.get ('reqid')
+        result['uid'] = request.args.get ('uid')
+        result['purdate'] = request.args.get ('purdate')
+        result['purprice'] = request.args.get ('purprice')
+        result['purqty'] = request.args.get ('purqty')
+        result['expdeliverydate'] = request.args.get ('expdeliverydate')
+        result['carrier'] = request.args.get ('carrier')
+        result['purstatus'] = request.args.get ('purstatus')
+        return PurchaseHandler ().updatePurchase (result['purid'], result)
+
+    elif request.method == 'DELETE':
+        purid = request.args.get ('purid')
+        return PurchaseHandler ().deletePurchase (purid)
+
     else:
         if not request.args:
             return PurchaseHandler().getAllPurchase()
@@ -125,7 +215,26 @@ def getPurchaseByProductIdAndCustomerID(pid, cid):
 @app.route ('/MHDA/paymentinfo/')
 def getPaymentInfo():
     if request.method == 'POST':
-        return PaymentInfoHandler().insertPayment(request.form)
+        result = {}
+        result['uid'] = request.args.get ('uid')
+        result['ccnumber'] = request.args.get ('ccnumber')
+        result['ccv'] = request.args.get ('ccv')
+        result['validate'] = request.args.get ('validate')
+        result['expdate'] = request.args.get ('expdate')
+        return PaymentInfoHandler().insertPaymentInfo(result)
+
+    elif request.method == 'PUT':
+        result = {}
+        result['uid'] = request.args.get ('uid')
+        result['ccnumber'] = request.args.get ('ccnumber')
+        result['ccv'] = request.args.get ('ccv')
+        result['validate'] = request.args.get ('validate')
+        result['expdate'] = request.args.get ('expdate')
+        return PaymentInfoHandler ().updatePaymentInfo (result['uid'], result)
+
+    elif request.method == 'DELETE':
+        uid = request.args.get ('uid')
+        return PaymentInfoHandler ().deletePaymentInfo (uid)
     else:
         if not request.args:
             return PaymentInfoHandler().getAllPaymentInfo()

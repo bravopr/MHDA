@@ -1,10 +1,12 @@
 from config.dbconfig import pg_config
 import psycopg2
+from handler.PaymentInfoHandler import PaymentInfoHandler
 import os
 from urllib import parse
 
 class UserDAO:
     def __init__(self):
+        '''
         parse.uses_netloc.append ("postgres")
         url = parse.urlparse (os.environ["DATABASE_URL"])
 
@@ -15,10 +17,11 @@ class UserDAO:
             host=url.hostname,
             port=url.port
         )
-        #connection_url = "dbname=%s user=%s password=%s" % (pg_config['dbname'],
-        #                                                    pg_config['user'],
-        #                                                    pg_config['passwd'])
-        #self.conn = psycopg2._connect(connection_url)
+        '''
+        connection_url = "dbname=%s user=%s password=%s" % (pg_config['dbname'],
+                                                            pg_config['user'],
+                                                            pg_config['passwd'])
+        self.conn = psycopg2._connect(connection_url)
 
     def getAllUsers(self):
         cursor = self.conn.cursor()
@@ -146,3 +149,53 @@ class UserDAO:
         for row in cursor:
             result.append (row)
         return result
+
+    def getMaxID(self):
+        cursor = self.conn.cursor()
+        query = "select max(uid) from users;"
+        cursor.execute (query)
+        maxid = cursor.fetchone ()
+        if (maxid is 0) or (maxid is None):
+            return 1;
+
+        return maxid[0]
+
+    def delete(self, uid):
+        cursor = self.conn.cursor ()
+        # From Table UsersAddress
+        query = "delete from useraddress where uid = %s;"
+        cursor.execute (query, (uid,))
+        # From Table Users
+        query2 = "delete from users where uid = %s;"
+        cursor.execute (query2, (uid,))
+        #Delete payment info of user
+        #PaymentInfoHandler ().deletePaymentInfo (uid)
+        return uid
+
+    def insert(self, uname, ulast, utype, uaddress, ucity, uregion, uzip, ustate, loclat, loclon):
+        cursor = self.conn.cursor ()
+        #Insert into Table Users
+        maxID = UserDAO.getMaxID (self)
+        uid = maxID + 1
+        query = "insert into users(uid, uname, ulast, utype) values (%s, %s, %s, %s) ;"
+        cursor.execute (query, (uid, uname, ulast, utype,))
+
+        # Insert into Table UsersAddress
+        queryUA = "insert into useraddress(uid, uaddress, ucity, uregion, uzip, ustate, loclat, loclon)"
+        queryUAp2 = "values (%s, %s, %s, %s, %s, %s, %s, %s) ;"
+        querytotalUA = queryUA + queryUAp2
+        cursor.execute (querytotalUA, (uid, uaddress, ucity, uregion, uzip, ustate, loclat, loclon,))
+        self.conn.commit ()
+        return uid
+
+    def update(self, uid, uname, ulast, utype, uaddress, ucity, uregion, uzip, ustate, loclat, loclon):
+        cursor = self.conn.cursor ()
+        # Insert into Table Users
+        query = "update users set uname = %s, ulast = %s, utype = %s where uid = %s ;"
+        cursor.execute (query, ( uname, ulast, utype, uid,))
+
+        # Insert into Table UsersAddress
+        query2 = "update useraddress set uaddress = %s, ucity = %s, uregion = %s, uzip = %s, ustate = %s, loclat = %s, loclon = %s where uid = %s"
+        cursor.execute (query2, ( uaddress, ucity, uregion, uzip, ustate, loclat, loclon, uid,))
+        self.conn.commit ()
+        return uid

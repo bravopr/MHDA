@@ -5,6 +5,7 @@ from urllib import parse
 
 class ResourcesDAO:
     def __init__(self):
+        '''
         parse.uses_netloc.append ("postgres")
         url = parse.urlparse (os.environ["DATABASE_URL"])
 
@@ -15,10 +16,11 @@ class ResourcesDAO:
             host=url.hostname,
             port=url.port
         )
-        #connection_url = "dbname=%s user=%s password=%s" % (pg_config['dbname'],
-        #                                                    pg_config['user'],
-        #                                                    pg_config['passwd'])
-        #self.conn = psycopg2._connect(connection_url)
+        '''
+        connection_url = "dbname=%s user=%s password=%s" % (pg_config['dbname'],
+                                                            pg_config['user'],
+                                                            pg_config['passwd'])
+        self.conn = psycopg2._connect(connection_url)
 
     def getAllResources(self):
         cursor = self.conn.cursor()
@@ -132,3 +134,38 @@ class ResourcesDAO:
         for row in cursor:
             result.append (row)
         return result
+
+    def getMaxID(self):
+        cursor = self.conn.cursor()
+        query = "select max(rid) from resources;"
+        cursor.execute (query)
+        maxid = cursor.fetchone ()
+        if (maxid is 0) or (maxid is None):
+            return 1;
+
+        return maxid[0]
+
+    def update(self, rid, uid, rname, rprice, descpercent, rcategory, rqty, rregion):
+        cursor = self.conn.cursor ()
+        query = "update resources set uid = %s, rname = %s, rprice = %s, descpercent = %s, rcategory = %s, rqty = %s, rregion = %s  where rid = %s;"
+        cursor.execute (query, (uid, rname, rprice, descpercent, rcategory,rqty,rregion,rid,))
+        self.conn.commit ()
+        return rid
+
+    def delete(self, rid):
+        cursor = self.conn.cursor ()
+        query = "delete from resources where rid = %s;"
+        cursor.execute (query, (rid,))
+        self.conn.commit ()
+        return rid
+
+    def insert(self, uid, rname, rprice, descpercent, rcategory, rqty, rregion):
+        cursor = self.conn.cursor ()
+        maxID = ResourcesDAO.getMaxID(self)
+        rid = maxID +1
+        query = "insert into resources(rid,uid,rname,rprice,descpercent,rcategory,rqty,rregion)"
+        queryp2 = "values (%s, %s, %s, %s, %s, %s, %s, %s) ;"
+        querytotal = query + queryp2
+        cursor.execute (querytotal, (rid,uid,rname,rprice,descpercent,rcategory,rqty,rregion,))
+        self.conn.commit ()
+        return rid

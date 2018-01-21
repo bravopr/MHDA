@@ -26,6 +26,21 @@ class UserHandler:
         result['loclon'] = row[10]
         return result
 
+    def build_alluserinfo_dict2(self, uid, uname , ulast , utype , uaddress , ucity , uregion , uzip , ustate , loclat , loclon):
+        result = {}
+        result['uid'] = uid
+        result['uname'] = uname
+        result['ulast'] = ulast
+        result['utype'] = utype
+        result['uaddress'] = uaddress
+        result['ucity'] = ucity
+        result['uregion'] = uregion
+        result['uzip'] = uzip
+        result['ustate'] = ustate
+        result['loclat'] = loclat
+        result['loclon'] = loclon
+        return result
+
 
     def build_part_dict(self, row):
         result = {}
@@ -235,8 +250,64 @@ class UserHandler:
 
 '''
 
-    def insertResource(self, form):
-        pass
+    def insertUser(self, userDic, userAddressDic):
+        dao = UserDAO ()
+        if len (userDic) != 3 & len (userAddressDic) != 7:
+            return jsonify (Error="Malformed post request"), 400
+        else:
+            uname = userDic['uname']
+            ulast = userDic['ulast']
+            utype = userDic['utype']
+            uaddress = userAddressDic['uaddress']
+            ucity = userAddressDic['ucity']
+            uregion = userAddressDic['uregion']
+            uzip = userAddressDic['uzip']
+            ustate = userAddressDic['ustate']
+            loclat = userAddressDic['loclat']
+            loclon = userAddressDic['loclon']
+
+            if uname and ulast and utype and uaddress and ucity and uregion and uzip and ustate and loclat and loclon:
+                uid = dao.insert (uname , ulast , utype , uaddress , ucity , uregion , uzip , ustate , loclat , loclon)
+                result = self.build_alluserinfo_dict2 (uid, uname , ulast , utype , uaddress , ucity , uregion , uzip , ustate , loclat , loclon)
+                return jsonify (User=result), 201
+            else:
+                return jsonify (Error="Unexpected attributes in post request"), 400
+
+    def updateUser(self, userDic, userAddressDic):
+        dao = UserDAO ()
+        if not dao.getUserById (userDic['uid']):
+            return jsonify (Error="Resource not found."), 404
+        else:
+            if len (userDic) != 4 & len (userAddressDic) != 7:
+                return jsonify (Error="Malformed update request"), 400
+            else:
+                uid = userDic['uid']
+                uname = userDic['uname']
+                ulast = userDic['ulast']
+                utype = userDic['utype']
+                uaddress = userAddressDic['uaddress']
+                ucity = userAddressDic['ucity']
+                uregion = userAddressDic['uregion']
+                uzip = userAddressDic['uzip']
+                ustate = userAddressDic['ustate']
+                loclat = userAddressDic['loclat']
+                loclon = userAddressDic['loclon']
+
+                if uid and uname and ulast and utype and uaddress and ucity and uregion and uzip and ustate and loclat and loclon:
+                    uidout = dao.update (uid, uname, ulast, utype, uaddress, ucity, uregion, uzip, ustate, loclat, loclon)
+                    result = self.build_alluserinfo_dict2 (uidout, uname, ulast, utype, uaddress, ucity, uregion, uzip,
+                                                          ustate, loclat, loclon)
+                    return jsonify (User=result), 201
+                else:
+                    return jsonify (Error="Unexpected attributes in put request"), 400
+
+    def deleteUser(self, uid):
+        dao = UserDAO ()
+        if not dao.getUserById (uid):
+            return jsonify (Error="User not found."), 404
+        else:
+            dao.delete (uid)
+            return jsonify (DeleteStatus="OK"), 200
 
 
 
